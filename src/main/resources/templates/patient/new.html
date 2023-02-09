@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients List</title>
+</head>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/patient/list">Patients</a>
+    </nav>
+</header>
+
+
+<body>
+<h1> New Patient</h1>
+
+    <form action="/patient/new" method="post" th:object="${patient}">
+
+        <div>
+            <div>
+                <label>Patient Number</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('patientNumber')}" th:errors="*{patientNumber}"></span>
+                <input name="patientNumber" type="text" th:field="*{patientNumber}" required>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label>Out Patient?</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('isAnOutPatient')}" th:errors="*{isAnOutPatient}"></span>
+                <input name="isAnOutPatient" type="text" th:field="*{isAnOutPatient}" required>
+            </div>
+        </div>
+
+
+        <div>
+            <div>
+                <label>FullName</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+                <input name="fullName" type="text" th:field="*{fullName}" required>
+            </div>
+        </div>
+
+
+        <div>
+            <div>
+                <label>Email</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></span>
+                <input name="emailAddress" type="text" th:field="*{emailAddress}" >
+            </div>
+        </div>
+
+
+        <div>
+            <div>
+                <label>Phone No</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('contactPhoneNumber')}" th:errors="*{contactPhoneNumber}"></span>
+                <input name="contactPhoneNumber" type="text" th:field="*{contactPhoneNumber}" >
+            </div>
+        </div>
+
+
+        <div>
+            <div>
+                <label>DateOfBirth</label>
+            </div>
+            <div>
+                <span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></span>
+                <input name="dateOfBirth" type="text" th:field="*{dateOfBirth}" >
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="Add Patient">
+        </div>
+
+    </form>
+
+
+</body>
+</html>
